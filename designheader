@@ -1,0 +1,55 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Observer.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
+
+// Animate [Design] Heading
+$(".container.hero-design").each(function (index) {
+  let triggerElement = $(this);
+  let targetElement = $(".design-heading-wrapper");
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElement,
+      // trigger element - viewport
+      start: "top top",
+      end: "bottom buttom",
+      scrub: 1
+    }
+  });
+  tl.fromTo(targetElement, {
+      scale: 1,
+      x: "0%",
+      y: "0%",
+      'webkitFilter': 'blur(0px)',
+      duration: 1
+    },
+    {
+      scale: 4,
+      x: "300%",
+      y: "300%",
+      'webkitFilter': 'blur(20px)',
+      duration: 1
+    }
+  );
+});
+
+// Animate [Footer] Title
+$(".container.footer").each(function (index) {
+  let triggerElement = $(this);
+  let targetElement = $(".footer-title-wrapper");
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: triggerElement,
+      // trigger element - viewport
+      start: "-100% top",
+      end: "30% top",
+      scrub: 1
+    }
+  });
+  tl.from(targetElement, {
+    y: "40%",
+    duration: 1
+  });
+});
